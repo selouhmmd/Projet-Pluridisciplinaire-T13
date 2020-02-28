@@ -7,11 +7,11 @@ namespace ESISBA.Models
     // Must Be Modified After Knowing How To Work With APIs
     class Book
     {
-        public string title { get; set; }
-        public string writer { get; set; }
-        public string description { get; set; }
-        public int nbr { get; set; }
-        public int available { get; set; }
-        public string coverurl { get; set; }
+        public string Title { get; set; }
+        public string Writer { get; set; }
+        public string Description { get; set; }
+        public int Nbr { get; set; }
+        public int Available { get; set; }
+        public string Coverurl { get; set; }
     }
 }
