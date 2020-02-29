@@ -6,11 +6,24 @@
              mc:Ignorable="d"
              x:Class="ESISBA.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ListView x:Name="bookList" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image Source="{Binding Coverurl}"/>
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
+                            <Label Text="{Binding Writer}" FontSize="10"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="{Binding Nbr,StringFormat='Number : {0}'}"/>
+                            <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>
