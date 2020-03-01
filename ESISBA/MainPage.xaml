@@ -6,7 +6,10 @@
              mc:Ignorable="d"
              x:Class="ESISBA.MainPage">
 
-    <ListView x:Name="bookList" HasUnevenRows="True">
+    <ListView x:Name="bookList" HasUnevenRows="True"
+              ItemSelected="BookList_ItemSelected"
+              ItemTapped="bookList_ItemTapped_1"
+              IsPullToRefreshEnabled="True" Refreshing="BookList_Refreshing">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -21,6 +24,10 @@
                             <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
                         </StackLayout>
                     </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Fav" Clicked="FavClicked" CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" Clicked="DeleteClicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                    </ViewCell.ContextActions> 
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

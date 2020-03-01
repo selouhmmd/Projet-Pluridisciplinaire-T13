@@ -2,6 +2,9 @@
 - Show A List Of Elements
 - Create The Book Model
 - Try To Get Info From A Google Sheets File
+- Add Search Bar
+- Add Remove Elements
+- Adding Favorite
 
 
 Done :
