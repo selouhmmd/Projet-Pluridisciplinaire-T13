@@ -5,32 +5,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ESISBA.MainPage">
-
-    <ListView x:Name="bookList" HasUnevenRows="True"
-              ItemSelected="BookList_ItemSelected"
-              ItemTapped="bookList_ItemTapped_1"
-              IsPullToRefreshEnabled="True" Refreshing="BookList_Refreshing">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Image Source="{Binding Coverurl}"/>
-                        <StackLayout HorizontalOptions="StartAndExpand">
-                            <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
-                            <Label Text="{Binding Writer}" FontSize="10"/>
+    <StackLayout>
+        <SearchBar Placeholder="Search ... " TextChanged="SearchBar_TextChanged"/>
+        <ListView x:Name="bookList" HasUnevenRows="True"
+                  ItemSelected="BookList_ItemSelected"
+                  ItemTapped="bookList_ItemTapped_1"
+                  IsPullToRefreshEnabled="True" Refreshing="BookList_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image Source="{Binding Coverurl}"/>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="{Binding Writer}" FontSize="10"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="{Binding Nbr,StringFormat='Number : {0}'}"/>
+                                <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <Label Text="{Binding Nbr,StringFormat='Number : {0}'}"/>
-                            <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
-                        </StackLayout>
-                    </StackLayout>
-                    <ViewCell.ContextActions>
-                        <MenuItem Text="Fav" Clicked="FavClicked" CommandParameter="{Binding .}"/>
-                        <MenuItem Text="Delete" Clicked="DeleteClicked" IsDestructive="True" CommandParameter="{Binding .}"/>
-                    </ViewCell.ContextActions> 
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Fav" Clicked="FavClicked" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Delete" Clicked="DeleteClicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions> 
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

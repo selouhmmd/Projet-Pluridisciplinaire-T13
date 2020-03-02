@@ -15,22 +15,45 @@ namespace ESISBA
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        IEnumerable<Book> GetBooks(string searchtxt = null)
+            {
+                List<Book> books = new List<Book>
+                {
+                     new Book{Title="Learning Java",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
+                     new Book{Title="Programming With C#",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
+                     new Book{Title="Android Studio For Beginners",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
+                     new Book{Title="Machine Learning And AI",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Python 3 Advanced",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Xamarin For IOS",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="C++ And Graphic Design",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="The World Of 3D",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Arduino Pour les nulles",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Electronique Fondamentale",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Analyse Et Algebre",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Probabilite et Statistiques",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Economie D\'entreprise",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Deep Learning",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="The Problem With Chess",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
+                     new Book{Title="Artificial Intelligence",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1}
+                };
+                if (String.IsNullOrWhiteSpace(searchtxt))
+                {
+                    return books;
+                }
 
+                return books.Where(c => c.Title.Contains(searchtxt));
+            }
         private ObservableCollection<Book> _books;
 
         internal ObservableCollection<Book> Books { get => _books; set => _books = value; }
 
         public MainPage()
         {
+            
+
             InitializeComponent();
-            _books = new ObservableCollection<Book>
-            {
-                 new Book {Title="Random Book Title",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
-                 new Book {Title="Random Title",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
-                 new Book{Title="Title Random Book",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
-                 new Book{Title="Book Random Title",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1}
-            };
-            bookList.ItemsSource = _books;
+            
+            bookList.ItemsSource = GetBooks();
         }
 
         private void BookList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -61,6 +84,11 @@ namespace ESISBA
         {var book = e.Item as Book;
             DisplayAlert("Selected", book.Title, "Yes");
 
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            bookList.ItemsSource = GetBooks(e.NewTextValue);
         }
     }
 }

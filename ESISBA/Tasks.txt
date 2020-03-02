@@ -1,10 +1,11 @@
 ﻿To Do :
-- Show A List Of Elements
-- Create The Book Model
+- Show A List Of Elements ... Done
+- Create The Book Model ... Done
 - Try To Get Info From A Google Sheets File
-- Add Search Bar
-- Add Remove Elements
+- Add Search Bar    ... Done
+- Add Remove Elements  ... Done
 - Adding Favorite
+
 
 
 Done :
