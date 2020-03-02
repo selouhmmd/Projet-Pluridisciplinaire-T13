@@ -5,7 +5,7 @@ using System.Text;
 namespace ESISBA.Models
 {
     // Must Be Modified After Knowing How To Work With APIs
-    class Book
+    public class Book
     {
         public string Title { get; set; }
         public string Writer { get; set; }

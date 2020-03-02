@@ -4,12 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ESISBA.MainPage">
+             x:Class="ESISBA.MainPage"
+             NavigationPage.HasNavigationBar="False">
     <StackLayout>
         <SearchBar Placeholder="Search ... " TextChanged="SearchBar_TextChanged"/>
         <ListView x:Name="bookList" HasUnevenRows="True"
                   ItemSelected="BookList_ItemSelected"
-                  ItemTapped="bookList_ItemTapped_1"
+                  ItemTapped="BookList_ItemTapped"
                   IsPullToRefreshEnabled="True" Refreshing="BookList_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>

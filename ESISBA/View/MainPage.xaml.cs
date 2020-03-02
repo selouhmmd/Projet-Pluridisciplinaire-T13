@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ESISBA.View;
 using ESISBA.Models;
 using System.Collections.ObjectModel;
 
@@ -41,7 +42,7 @@ namespace ESISBA
                     return books;
                 }
 
-                return books.Where(c => c.Title.Contains(searchtxt));
+                return books.Where(c => c.Title.ToLower().Contains(searchtxt.ToLower()));
             }
         private ObservableCollection<Book> _books;
 
@@ -80,9 +81,10 @@ namespace ESISBA
             bookList.EndRefresh();
         }
 
-        private void bookList_ItemTapped_1(object sender, ItemTappedEventArgs e)
-        {var book = e.Item as Book;
-            DisplayAlert("Selected", book.Title, "Yes");
+        async void BookList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var book = e.Item as Book;
+            await Navigation.PushAsync(new BookView(book));
 
         }
 
