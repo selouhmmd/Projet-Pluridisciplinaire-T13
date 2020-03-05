@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ESISBA.View.BookView"
-             Title="{Binding Title}"
+             Title="{Binding Title,StringFormat='Book Details : {0}'}"
              Padding="20">
     <ContentPage.Content>
         <StackLayout>
