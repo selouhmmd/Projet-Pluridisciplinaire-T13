@@ -15,9 +15,7 @@ namespace ESISBA.View
         public BookView(Book book)
         {
             if (book == null)
-            {
                 throw new ArgumentNullException();
-            }
 
             InitializeComponent();
             BindingContext = book;
