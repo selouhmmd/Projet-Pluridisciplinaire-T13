@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="ESISBA.MainPage">
     <NavigationPage.TitleView>
-        <SearchBar Placeholder="Search ... " TextChanged="SearchBar_TextChanged"/>
+        <SearchBar Placeholder="Search ... " Visual="Material" TextChanged="SearchBar_TextChanged"/>
     </NavigationPage.TitleView>
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
@@ -16,7 +16,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10">
+                        <StackLayout Orientation="Horizontal" Padding="10" Visual="Material">
                             <Image Source="{Binding Coverurl}"/>
                             <StackLayout HorizontalOptions="StartAndExpand">
                                 <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
