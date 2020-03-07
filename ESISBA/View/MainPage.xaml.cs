@@ -87,4 +87,5 @@ namespace ESISBA
             bookList.ItemsSource = GetBooks(e.NewTextValue);
         }
     }
+
 }
