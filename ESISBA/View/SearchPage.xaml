@@ -4,12 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ESISBA.View.SearchPage">
+             x:Class="ESISBA.View.SearchPage"
+             Title="Advanced Search">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="From Title :" />
+                    <EntryCell Placeholder="Write Something From Title"/>
+                    <TextCell Text="From Description :"></TextCell>
+                    <EntryCell Placeholder="Write A Word From Description"/>
+                    <TextCell Text="Author :" />
+                    <EntryCell Placeholder="Search Author"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+            <Button Text="Search" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
