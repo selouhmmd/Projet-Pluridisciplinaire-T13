@@ -19,6 +19,12 @@ namespace ESISBA.View
 
             InitializeComponent();
             BindingContext = book;
+            
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Sending Email Request", "Do You Want To Request This Book", "Yes", "No");
+        }   
     }
 }

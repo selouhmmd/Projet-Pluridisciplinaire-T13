@@ -8,6 +8,9 @@
     <NavigationPage.TitleView>
         <SearchBar Placeholder="Search ... " Visual="Material" TextChanged="SearchBar_TextChanged"/>
     </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
                   ItemSelected="BookList_ItemSelected"

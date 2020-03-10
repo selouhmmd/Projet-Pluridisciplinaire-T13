@@ -20,7 +20,7 @@ namespace ESISBA
             {
                 List<Book> books = new List<Book>
                 {
-                     new Book{Title="Learning Java",Description="this Called is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
+                     new Book{Title="Learning Java",Description="One Of The Most Popular Books In Learning Java",Writer="Random",Nbr=1,Available=1},
                      new Book{Title="Programming With C#",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
                      new Book{Title="Android Studio For Beginners",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
                      new Book{Title="Machine Learning And AI",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
@@ -42,7 +42,7 @@ namespace ESISBA
                     return books;
                 }
 
-                return books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower())));
+                return books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
             }
         private ObservableCollection<Book> _books;
 
@@ -85,6 +85,11 @@ namespace ESISBA
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             bookList.ItemsSource = GetBooks(e.NewTextValue);
+        }
+
+        async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchPage());
         }
     }
 
