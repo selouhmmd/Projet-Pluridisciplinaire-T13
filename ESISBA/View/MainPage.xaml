@@ -10,6 +10,7 @@
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem Text="Add Elements" Order="Secondary" Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
