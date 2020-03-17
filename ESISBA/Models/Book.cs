@@ -6,9 +6,10 @@ using System.Text;
 namespace ESISBA.Models
 {
     // Must Be Modified After Knowing How To Work With APIs
+    [Table("Books")]
     public class Book
     {
-        [PrimaryKey]
+        [PrimaryKey,AutoIncrement]
         public int ID { get; set; }
         public string Title { get; set; }
         public string Writer { get; set; }

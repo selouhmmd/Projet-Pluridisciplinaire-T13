@@ -11,11 +11,11 @@
         <TableView>
             <TableRoot>
                 <TableSection>
-                    <TextCell Text="From Title :" />
+                    <TextCell Text="From Title :" TextColor="Black"/>
                     <EntryCell Placeholder="Write Something From Title"/>
-                    <TextCell Text="From Description :"></TextCell>
+                        <TextCell Text="From Description :" TextColor="Black"></TextCell>
                     <EntryCell Placeholder="Write A Word From Description"/>
-                    <TextCell Text="Author :" />
+                        <TextCell Text="Author :" TextColor="Black"/>
                     <EntryCell Placeholder="Search Author"/>
                 </TableSection>
             </TableRoot>

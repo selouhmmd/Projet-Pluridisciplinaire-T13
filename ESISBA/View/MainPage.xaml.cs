@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using ESISBA.View;
 using ESISBA.Models;
 using System.Collections.ObjectModel;
+using SQLite;
+using HelloWorld;
 
 namespace ESISBA
 {
@@ -18,33 +20,10 @@ namespace ESISBA
     {
         IEnumerable<Book> GetBooks(string searchtxt = null)
             {
-                List<Book> books = new List<Book>
-                {
-                     new Book{Title="Learning Java",Description="One Of The Most Popular Books In Learning Java",Writer="Random",Nbr=1,Available=1},
-                     new Book{Title="Programming With C#",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
-                     new Book{Title="Android Studio For Beginners",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Random",Nbr=1,Available=1},
-                     new Book{Title="Machine Learning And AI",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Python 3 Advanced",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Xamarin For IOS",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="C++ And Graphic Design",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="The World Of 3D",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Arduino Pour les nulles",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Electronique Fondamentale",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Analyse Et Algebre",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Probabilite et Statistiques",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Economie D\'entreprise",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Deep Learning",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="The Problem With Chess",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1},
-                     new Book{Title="Artificial Intelligence",Description="this is a random description,so let's try to write a big paragraph so it can seem like we care",Writer="Danrom",Nbr=1,Available=1}
-                };
-                if (String.IsNullOrWhiteSpace(searchtxt))
-                {
-                    return books;
-                }
-
-                return books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
+                return _books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
             }
         private ObservableCollection<Book> _books;
+        private SQLiteAsyncConnection _connection;
 
         internal ObservableCollection<Book> Books { get => _books; set => _books = value; }
 
@@ -53,8 +32,9 @@ namespace ESISBA
             
 
             InitializeComponent();
-            
-            bookList.ItemsSource = GetBooks();
+
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
         }
 
         private void BookList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -62,6 +42,13 @@ namespace ESISBA
             bookList.SelectedItem = null;
         }
 
+        protected override async void OnAppearing()
+        {
+            await _connection.CreateTableAsync<Book>();
+            var books = await _connection.Table<Book>().ToListAsync();
+            _books = new ObservableCollection<Book>(books);
+            bookList.ItemsSource = _books;
+        }
 
         private void FavClicked(object sender, EventArgs e)
         {
@@ -94,7 +81,14 @@ namespace ESISBA
 
         private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddBook());
+            await Navigation.PushAsync(new AddBook(_connection));
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var item = sender as MenuItem;
+            Book book = item.CommandParameter as Book;
+            await Navigation.PushAsync(new AddBook(_connection,book));
         }
     }
 

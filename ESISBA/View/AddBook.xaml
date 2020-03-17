@@ -10,14 +10,14 @@
             <TableView>
                 <TableRoot>
                     <TableSection>
-                        <EntryCell Label="Title" />
-                        <EntryCell Label="Author"/>
-                        <EntryCell Label="Description"/>
+                        <EntryCell x:Name="Title" Label="Title" />
+                        <EntryCell x:Name="Author" Label="Author" />
+                        <EntryCell x:Name="Desc" Label="Description" />
                     </TableSection>
                 </TableRoot>
             </TableView>
-            <Button Text="Add Book"/>
-  
+            <Label x:Name="Lbl"/>
+            <Button x:Name="Button" Text="Add Book" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

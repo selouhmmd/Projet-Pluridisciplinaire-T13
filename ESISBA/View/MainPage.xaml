@@ -33,6 +33,7 @@
                         </StackLayout>
                         <ViewCell.ContextActions>
                             <MenuItem Text="Add to Favorite" Clicked="FavClicked" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Modify" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions> 
                     </ViewCell>
                 </DataTemplate>
