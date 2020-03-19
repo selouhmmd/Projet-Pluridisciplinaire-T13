@@ -32,7 +32,7 @@ namespace ESISBA.View
                 Title.Text = mbk.Title;
                 Author.Text = mbk.Writer;
                 Desc.Text = mbk.Description;
-
+                Button.Text = "Update Post";
             }
         }
        
