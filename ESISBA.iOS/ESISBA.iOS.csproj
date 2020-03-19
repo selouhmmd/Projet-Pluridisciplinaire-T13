@@ -68,6 +68,7 @@
     <None Include="Info.plist" />
     <Compile Include="Persistence\SQLiteDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\credentials.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

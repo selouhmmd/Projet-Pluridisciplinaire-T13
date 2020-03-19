@@ -18,7 +18,11 @@ namespace ESISBA
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        IEnumerable<Book> GetBooks(string searchtxt = null)
+      
+
+
+
+    IEnumerable<Book> GetBooks(string searchtxt = null)
             {
                 return _books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
             }
