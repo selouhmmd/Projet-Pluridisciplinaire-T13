@@ -26,9 +26,10 @@ namespace ESISBA
 
 
 
-    IEnumerable<Book> GetBooks(string searchtxt = null)
+    IEnumerable<Book> GetBooks(ObservableCollection<Book> bk,string searchtxt = null)
             {
-                return _books.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
+            // This Is Crashing The App For Some Reason 
+                return bk.Where(c => (c.Title.ToLower().Contains(searchtxt.ToLower()) || c.Description.ToLower().Contains(searchtxt.ToLower()) || c.Writer.ToLower().Contains(searchtxt.ToLower())));
             }
         private ObservableCollection<Book> _books;
         private SQLiteAsyncConnection _connection;
@@ -78,8 +79,8 @@ namespace ESISBA
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            bookList.ItemsSource = GetBooks(e.NewTextValue);
+        {   // THis Part Is For Aek Research Uncomment The Next Line if you Feel Like The Called Function Is Working And MAke The FUnction A Seperate FIle
+            //bookList.ItemsSource = GetBooks(_books,e.NewTextValue);
         }
 
         async void ToolbarItem_Clicked(object sender, EventArgs e)

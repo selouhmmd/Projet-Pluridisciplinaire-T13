@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ESISBA.View;
 
 namespace ESISBA
 {
@@ -10,7 +11,7 @@ namespace ESISBA
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()
