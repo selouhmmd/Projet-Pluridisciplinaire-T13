@@ -10,9 +10,9 @@
             <TableView>
                 <TableRoot>
                     <TableSection>
-                        <EntryCell x:Name="Title" Label="Title" />
-                        <EntryCell x:Name="Author" Label="Author" />
-                        <EntryCell x:Name="Desc" Label="Description" />
+                        <EntryCell x:Name="Title" Label="Title"/>
+                        <EntryCell x:Name="Author" Label="Author"/>
+                        <EntryCell x:Name="Desc" Label="Description"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
