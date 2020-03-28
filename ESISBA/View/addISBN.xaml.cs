@@ -22,6 +22,7 @@ namespace ESISBA.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            Loading.IsVisible = Loading.IsRunning = true;
             var book = Isbn.GetBook(isbn.Text).Result;
 
             await connect.InsertAsync(book);

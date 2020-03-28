@@ -22,14 +22,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="10" Visual="Material">
-                            <Image Source="{Binding Coverurl}"/>
+                            <Image Source="{Binding Coverurl}" HeightRequest="100"/>
                             <StackLayout HorizontalOptions="StartAndExpand">
                                 <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
                                 <Label Text="{Binding Writer}" FontSize="10"/>
-                            </StackLayout>
-                            <StackLayout>
-                                <Label Text="{Binding Nbr,StringFormat='Number : {0}'}"/>
-                                <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
+                                <Label Text="{Binding Nbr,StringFormat='Number : {0}'}" FontSize="10"/>
+                                <Label Text="{Binding Available,StringFormat='Available : {0}'}" FontSize="10"/>
                             </StackLayout>
                         </StackLayout>
                         <ViewCell.ContextActions>
