@@ -78,7 +78,7 @@ namespace ESISBA.View
                 else
                     {
                         var book = new Book { Title = title, Description = descript, Writer = author, Nbr = 1, Available = 1 };
-                        await _connection.InsertAsync(book);
+                        
                 }
 
                 await Navigation.PopAsync();

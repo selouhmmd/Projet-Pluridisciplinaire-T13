@@ -8,6 +8,8 @@
              Title="{Binding Title,StringFormat='Book Details : {0}'}"
              Padding="20">
     <ContentPage.Content>
+
+        <ScrollView>
         <StackLayout>
             <Label Text="{Binding Title}" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
             <Label Text="{Binding Writer}" TextColor="Gray" />
@@ -17,6 +19,6 @@
             <Label Text="{Binding Available, StringFormat='Available Books : {0}'}"/>
             <Label Text="{Binding Nbr,StringFormat='Total Number Of Books : {0}'}"/>
             <Button Text="Send Request" Clicked="Button_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
-        </StackLayout>
+        </StackLayout></ScrollView>
     </ContentPage.Content>
 </ContentPage>

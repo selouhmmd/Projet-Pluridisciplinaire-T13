@@ -11,6 +11,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="ToolbarItem_Clicked"></ToolbarItem>
         <ToolbarItem Text="Add Elements" Order="Secondary" Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
+        <ToolbarItem Text="Add Item By ISBN" Order="Secondary" Clicked="ToolbarItem_Clicked_2"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"

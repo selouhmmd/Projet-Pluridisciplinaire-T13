@@ -99,6 +99,11 @@ namespace ESISBA
             Book book = item.CommandParameter as Book;
             await Navigation.PushAsync(new AddBook(_connection,book));
         }
+
+        private async void ToolbarItem_Clicked_2(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new addISBN(_connection));
+        }
     }
 
 }
