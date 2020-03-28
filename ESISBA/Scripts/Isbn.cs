@@ -30,7 +30,7 @@ namespace Scripts
                     {
                         var _elet = JsonConvert.DeserializeObject<RootObject>(json);
                         var book = _elet.items[0].volumeInfo;
-                        Book bk = new Book { Title =book.title,Description=book.description,Writer=book.authors[0],ISBN=isbn,Coverurl= "http://covers.openlibrary.org/b/isbn/" + isbn+"-L.jpg"};
+                        Book bk = new Book { Title =book.title,Description=book.description,Writer=book.authors[0],ISBN=isbn,Coverurl=_elet.items[0].volumeInfo.imageLinks.thumbnail};
                        return bk;
 
                     }
