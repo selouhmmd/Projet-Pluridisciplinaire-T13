@@ -13,7 +13,7 @@
         <StackLayout>
             <Label Text="{Binding Title}" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
             <Label Text="{Binding Writer}" TextColor="Gray" />
-            <Image Source="{Binding Coverurl}"/>
+            <Image Source="{Binding Coverurl}" HeightRequest="400"/>
             <Label Text="{Binding Description}"/>
             <BoxView HeightRequest="1" Color="Gray"/>
             <Label Text="{Binding Available, StringFormat='Available Books : {0}'}"/>

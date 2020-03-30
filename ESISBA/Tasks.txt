@@ -1,17 +1,1 @@
-﻿To Do :
-- Show A List Of Elements ... Done
-- Create The Book Model ... Done
-- Try To Get Info From A Google Sheets File
-- Add Search Bar    ... Done
-- Add Remove Elements  ... Done
-- Adding Favorite
-
-
-
-Done :
-
-
-
-Optional Features :
-
-
+﻿# in Adding Book By ISBN Add Checking For Image If Exists -- Done

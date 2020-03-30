@@ -5,6 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Title="Adding A Book By ISBN 10/13"
              x:Class="ESISBA.View.addISBN">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Scan ISBN" Order="Secondary" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <TableView>

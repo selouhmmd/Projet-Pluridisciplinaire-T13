@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Scripts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZXing.Net.Mobile.Forms;
 
 namespace ESISBA.View
 {
@@ -27,6 +28,20 @@ namespace ESISBA.View
 
             await connect.InsertAsync(book);
             await Navigation.PopAsync();
+        }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var scanner = new ZXingScannerPage();
+            await Navigation.PushAsync(scanner);
+            scanner.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopAsync();
+                    isbn.Text = result.Text;
+                });
+            };
         }
     }
 }
